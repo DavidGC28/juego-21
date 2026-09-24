@@ -12,9 +12,25 @@ public class Dealer {
         this.generarNaipe();
     }
 
-  
     public int generarAleatorio(int maximo) {
         return (int) (Math.random() * (maximo + 1));
+    }
+
+    
+    public Carta entregarCarta() {
+       
+        if (this.naipe == null || this.naipe.isEmpty()) {
+            return null;
+        }
+
+ 
+        int posicionAleatoria = generarAleatorio(this.naipe.size() - 1);
+
+        
+        Carta cartaEntregada = this.naipe.remove(posicionAleatoria);
+
+
+        return cartaEntregada;
     }
 
     public void generarNaipe() {
