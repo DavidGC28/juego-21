@@ -7,13 +7,16 @@ public class Dealer {
 
     private ArrayList<Carta> naipe;
 
-  
     public Dealer() {
         this.naipe = new ArrayList<>();
         this.generarNaipe();
     }
 
-   
+  
+    public int generarAleatorio(int maximo) {
+        return (int) (Math.random() * (maximo + 1));
+    }
+
     public void generarNaipe() {
         String[] valores = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         String[] palos = {"T", "CN", "D", "CR"};
@@ -26,14 +29,12 @@ public class Dealer {
         }
     }
 
-   
     public void imprimirNaipe() {
         for (Carta carta : this.naipe) {
             carta.imprimir();
         }
     }
 
- 
     public ArrayList<Carta> getNaipe() {
         return naipe;
     }
