@@ -13,7 +13,6 @@ public class Juego21 {
         this.jugadores = new ArrayList<>();
     }
 
-   
     public void cargarValores() {
         if (dealer != null && dealer.getNaipe() != null) {
             for (Carta carta : dealer.getNaipe()) {
@@ -29,19 +28,16 @@ public class Juego21 {
         }
     }
 
-
     public void inicializar() {
         this.dealer = new Dealer();
         this.cargarValores();
     }
-
 
     public void agregarJugador(Jugador jugador) {
         if (jugador != null) {
             this.jugadores.add(jugador);
         }
     }
-
 
     public void repartirCarta(Jugador jugador) {
         if (dealer != null && jugador != null) {
@@ -51,11 +47,28 @@ public class Juego21 {
     }
 
 
+    public void calcularTotal() {
+        if (this.jugadores != null) {
+            for (Jugador jugador : this.jugadores) {
+                int sumaValores = 0;
+                if (jugador.getCartas() != null) {
+                    for (Carta carta : jugador.getCartas()) {
+                        sumaValores += carta.getValorJuego();
+                    }
+                }
+                jugador.setPuntajeCartas(sumaValores);
+            }
+        }
+    }
+
+   
     public void repartirRonda() {
         if (this.jugadores != null) {
             for (Jugador jugador : this.jugadores) {
                 repartirCarta(jugador);
             }
+            
+            calcularTotal();
         }
     }
 
