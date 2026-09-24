@@ -13,7 +13,7 @@ public class Juego21 {
         this.jugadores = new ArrayList<>();
     }
 
-    
+   
     public void cargarValores() {
         if (dealer != null && dealer.getNaipe() != null) {
             for (Carta carta : dealer.getNaipe()) {
@@ -29,20 +29,20 @@ public class Juego21 {
         }
     }
 
-    
+
     public void inicializar() {
         this.dealer = new Dealer();
         this.cargarValores();
     }
 
-    
+
     public void agregarJugador(Jugador jugador) {
         if (jugador != null) {
             this.jugadores.add(jugador);
         }
     }
 
-    
+
     public void repartirCarta(Jugador jugador) {
         if (dealer != null && jugador != null) {
             Carta cartaEntregada = dealer.entregarCarta();
@@ -50,7 +50,7 @@ public class Juego21 {
         }
     }
 
-   
+
     public void repartirRonda() {
         if (this.jugadores != null) {
             for (Jugador jugador : this.jugadores) {
@@ -59,7 +59,7 @@ public class Juego21 {
         }
     }
 
-   
+    // Getters y Setters
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
     }
