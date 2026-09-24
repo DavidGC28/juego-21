@@ -21,6 +21,12 @@ public class Jugador {
         }
     }
 
+   
+    public void limpiarMano() {
+        this.cartas.clear();
+        this.puntajeCartas = 0;
+    }
+
     public void imprimir() {
         System.out.println("Jugador: " + nickname + " | Puntaje: " + puntajeCartas);
         System.out.println("Cartas:");
