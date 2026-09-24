@@ -46,7 +46,6 @@ public class Juego21 {
         }
     }
 
-
     public void calcularTotal() {
         if (this.jugadores != null) {
             for (Jugador jugador : this.jugadores) {
@@ -61,15 +60,28 @@ public class Juego21 {
         }
     }
 
-   
     public void repartirRonda() {
         if (this.jugadores != null) {
             for (Jugador jugador : this.jugadores) {
                 repartirCarta(jugador);
             }
-            
             calcularTotal();
         }
+    }
+
+   
+    public ArrayList<Jugador> validarGanador() {
+        ArrayList<Jugador> ganadores = new ArrayList<>();
+
+        if (this.jugadores != null) {
+            for (Jugador jugador : this.jugadores) {
+                if (jugador != null && jugador.getPuntajeCartas() == 21) {
+                    ganadores.add(jugador);
+                }
+            }
+        }
+
+        return ganadores;
     }
 
     // Getters y Setters
